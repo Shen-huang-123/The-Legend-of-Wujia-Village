@@ -1,0 +1,10 @@
+/* Layout-only balance pass; artwork, character coordinates and toolbar stay intact. */
+#home.art-menu{--menu-left:max(5vw,env(safe-area-inset-left));padding-left:var(--menu-left)!important}
+#home.art-menu::after{background:linear-gradient(90deg,rgba(5,18,25,.79) 0%,rgba(6,19,26,.68) 27%,rgba(7,21,28,.46) 43%,rgba(7,21,28,.15) 55%,transparent 67%),linear-gradient(0deg,#06101666,transparent 25%)!important}
+#home.art-menu .home-nav{width:calc(var(--menuWidth,37)*1vw)!important;max-width:none!important;gap:1vh!important}
+#home.art-menu .home-nav button{width:100%;box-sizing:border-box;min-height:max(34px,7.2vh)!important;padding-left:2vw!important;padding-right:2vw!important}
+#home.art-menu h1{width:37vw!important;max-width:none;margin-left:0!important;font-size:clamp(36px,9.6vh,104px)!important}
+#home.art-menu h1 span{margin-left:12vw!important}
+#home.art-menu .english{margin-left:0!important;margin-bottom:2.6vh!important}
+#home.art-menu .save-panel{left:var(--menu-left)!important;width:37vw!important;box-sizing:border-box}
+@media(max-height:430px){#home.art-menu h1{font-size:9.5vh!important}#home.art-menu .english{margin-bottom:1.2vh!important}#home.art-menu .home-nav button{min-height:max(30px,7.5vh)!important}}

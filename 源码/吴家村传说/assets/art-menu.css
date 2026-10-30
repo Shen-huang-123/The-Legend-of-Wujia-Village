@@ -1,0 +1,39 @@
+/* Final menu layer: intentionally independent of scene.png and App cover. */
+#home.art-menu h1{font-size:clamp(36px,9.2vh,96px)!important;line-height:1!important;margin:0!important}
+#home.art-menu h1 span{margin:.7vh 0 0 10vw!important;font-size:.49em!important}
+#home.art-menu .english{opacity:.55;font-size:clamp(6px,1vh,10px)!important;letter-spacing:.24em;margin:1.3vh 0 3vh!important}
+#home.art-menu .home-nav button{color:#e8dfcf!important;border-bottom-color:#b7996540!important;font-size:clamp(14px,2.8vh,28px)!important;min-height:7.2vh!important;padding:1.15vh 1.4vw!important;transition:color .18s,transform .12s,box-shadow .2s!important;background-color:#09101550!important}
+#home.art-menu .home-nav button::before{content:'◇';display:inline-block;color:#ad956b;font-size:.72em;margin-right:1.1vw;transition:color .2s}
+#home.art-menu .home-nav button::after{color:#ab956c;opacity:.55;font-size:.8em}
+#home.art-menu .home-nav button:hover{color:#fff1d8!important}
+#home.art-menu .home-nav button.is-selected{box-shadow:inset 0 1px #c0a47455,inset 0 -1px #c0a47455!important}
+#home.art-menu .home-nav button.is-selected::before{content:'◆';color:#d6b985}
+#home.art-menu .home-nav button:active{box-shadow:inset 0 0 16px #d4ad6333!important;filter:brightness(1.12)!important}
+#home.art-menu::after{background:linear-gradient(90deg,#061016ab 0%,#06101655 25%,transparent 52%),linear-gradient(0deg,#06101666,transparent 25%)!important}
+#home.art-menu>.home-side{right:max(2vw,env(safe-area-inset-right))!important;top:9vh!important;gap:2.5vh!important;padding:1vh .5vw;border-left:1px solid #ad936233}
+#home.art-menu .home-side button{height:11vh!important;min-height:44px;min-width:44px;gap:.6vh;font-size:clamp(9px,1.55vh,15px)!important;transition:color .2s,transform .15s}
+#home.art-menu .home-side b{width:5.2vh;height:5.2vh;font-size:2.8vh!important;border-color:#a38b6255;background:#07101577;transition:border-color .2s,background .2s}
+#home.art-menu .home-side button:hover{color:#ffebc3}#home.art-menu .home-side button:hover b{border-color:#cdb17b;background:#61282066}
+#home.art-menu .save-panel{width:29vw;bottom:6.5vh;padding:1.5vh 1.3vw;border:0!important;border-left:2px solid #a98b59!important;border-top:1px solid #a98b593d!important;background:linear-gradient(100deg,#061016df,#06101688,transparent)!important;box-shadow:0 8px 24px #0002;font-size:clamp(11px,1.9vh,19px)}
+#home.art-menu .save-panel small{color:#a2b0b5;letter-spacing:.08em;font-size:.65em}.save-panel:hover{filter:brightness(1.13)}
+#home.art-menu .home-leaves i{opacity:.55}#home.art-menu .home-mist{animation-duration:32s}
+#home.art-menu .art-background::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 87% 46%,#ed652014,transparent 13%);animation:lantern-breathe 7s ease-in-out infinite}
+.reduce-motion .art-background::after,.quality-low .art-background::after{animation:none!important}
+@media(prefers-reduced-motion:reduce){.art-background::after{animation:none!important}}
+#home.art-menu{background:#101e24!important;padding:5vh max(5vw,env(safe-area-inset-left))!important}
+#home.art-menu::before{display:none!important}#home.art-menu::after{background:linear-gradient(90deg,#07111966,transparent 58%),linear-gradient(0deg,#071119aa,transparent 30%)!important;z-index:1}
+#home.art-menu .art-background{position:absolute!important;inset:0;z-index:0;background:radial-gradient(ellipse at 70% 22%,#71838a50,transparent 30%),linear-gradient(165deg,#253d48,#111d25 60%,#0a1319);pointer-events:none;transform:scale(var(--backgroundScale,1))}
+#home.art-menu .art-background.art-loaded{background-image:var(--art-image);background-size:cover;background-position:calc(var(--backgroundX)*1%) calc(var(--backgroundY)*1%)}
+#home.art-menu .art-character{position:absolute!important;left:calc(var(--characterX)*1%);bottom:calc(var(--characterBottom)*1%);height:calc(var(--characterHeight)*1%);width:22%;transform:translateX(-50%);z-index:2;pointer-events:none;border:1px dashed #a9b7be55;background:linear-gradient(0deg,#63757a18,transparent)}
+.art-character::after{content:'背影立绘占位';position:absolute;bottom:8%;width:100%;text-align:center;color:#8fa1a8;font-size:12px}.art-character.art-loaded{background:var(--art-image) center bottom/contain no-repeat!important;border:0!important}.art-character.art-loaded::after{display:none}
+#home.art-menu .home-nav{width:calc(var(--menuWidth)*1vw)!important;gap:1vh!important}
+#home.art-menu .home-nav button{background:var(--button-normal,none)!important;border:0!important;border-bottom:1px solid #c2b39a22!important;clip-path:none!important;filter:none!important;min-height:7vh!important;font-size:clamp(14px,3vh,30px)!important;padding:1vh 1vw!important;letter-spacing:.2em;background-size:100% 100%!important}
+#home.art-menu .home-nav button:hover{background-image:var(--button-hover,linear-gradient(90deg,#77322666,transparent))!important}
+#home.art-menu .home-nav button.is-selected,#home.art-menu .home-nav button:focus-visible{background-image:var(--button-selected,linear-gradient(90deg,#8d382877,transparent))!important;color:#f2d9ae}
+#home.art-menu .home-nav button:active{background-image:var(--button-pressed,linear-gradient(90deg,#a04b3888,transparent))!important;transform:scale(.97)}
+#home.art-menu .save-panel{background-image:var(--save-image,linear-gradient(90deg,#0a161dbb,transparent));border:0;border-top:1px solid #a5987555;width:33vw;font-size:clamp(11px,2vh,20px)}
+.home-side b.art-loaded{background:var(--icon-image) center/contain no-repeat!important;font-size:0!important;border:0!important}
+#home.art-menu .art-status{position:absolute;right:9vw;bottom:2vh;color:#aab9bd;font:10px sans-serif;z-index:4;pointer-events:none}
+#home.art-menu .home-mist{background-image:var(--mist-image,radial-gradient(ellipse,#acbbc018,transparent 65%));background-size:cover}
+#home.art-menu .home-leaves i{background:var(--leaf-image,none) center/contain no-repeat}
+@media(max-height:400px){#home.art-menu h1{font-size:10vh!important}#home.art-menu .home-nav button{min-height:8vh!important}.art-status{display:none}}

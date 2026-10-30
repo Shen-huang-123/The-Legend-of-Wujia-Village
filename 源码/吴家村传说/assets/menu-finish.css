@@ -1,0 +1,18 @@
+:root{--menu-ink:#091218b8;--menu-paper:#e8dfcd;--menu-gold:#c4a577;--menu-red:#792b24;--menu-time:180ms;--menu-ease:cubic-bezier(.2,.65,.3,1)}
+#home.art-menu .home-nav button{font-family:'Noto Serif CJK SC','Songti SC',SimSun,serif;color:var(--menu-paper)!important;background-image:linear-gradient(100deg,var(--menu-ink),#16202344 65%,transparent)!important;border-bottom:0!important;box-shadow:inset 0 -1px #b59a6726;transition:color var(--menu-time),transform var(--menu-time) var(--menu-ease),background-color var(--menu-time)!important;isolation:isolate;min-height:max(34px,7.2vh)!important}
+#home.art-menu .home-nav button::before{transition:color var(--menu-time),text-shadow var(--menu-time)}
+#home.art-menu .home-nav button::after{transition:transform var(--menu-time),opacity var(--menu-time)}
+#home.art-menu .home-nav button:hover::after,#home.art-menu .home-nav button.is-selected::after{transform:translateX(3px);opacity:.9}
+#home.art-menu .home-nav button.is-selected,#home.art-menu .home-nav button:focus-visible{background-image:radial-gradient(ellipse at 6% 45%,#98352766,transparent 30%),linear-gradient(95deg,#67241fdd,#692a2355 68%,transparent)!important;box-shadow:inset 0 -1px #cfb27a88!important;color:#f5dfb6!important;text-indent:3px;clip-path:polygon(0 5%,22% 0,70% 3%,98% 0,100% 18%,98% 52%,100% 84%,96% 97%,52% 100%,13% 97%,0 100%,1% 67%)}
+#home.art-menu .home-nav button.is-selected::before{color:#ecd2a1;text-shadow:0 0 5px #d9b57055}
+#home.art-menu button.confirming{transform:scale(.975)!important;filter:brightness(1.15)!important}
+#home.art-menu .save-panel span{font-family:'Noto Serif CJK SC',SimSun,serif;font-weight:600;letter-spacing:.08em}.save-panel small{font-family:'Microsoft YaHei',sans-serif;font-weight:400}
+#home.art-menu .home-side button{color:#b5a58b}.home-side button:focus-visible b,.home-side button:active b{background-color:#71332999!important;border-color:var(--menu-gold)!important}
+#home.art-menu.menu-enter .art-background{animation:menu-scene .35s ease-out both}
+#home.art-menu.menu-enter h1{animation:menu-title .45s .1s both}
+#home.art-menu.menu-enter .home-nav button{animation:menu-item .3s both;animation-delay:calc(.23s + var(--entry-index,0)*.075s)}
+#home.art-menu.menu-enter .save-panel,#home.art-menu.menu-enter .home-side{animation:menu-item .3s .65s both}
+.menu-ember{position:absolute!important;width:3px;height:3px;border-radius:50%;background:#bd5539;opacity:0;pointer-events:none;z-index:2;left:var(--ember-x);bottom:12%;animation:ember-drift 14s var(--ember-delay) infinite linear}
+@keyframes menu-scene{from{opacity:0}to{opacity:1}}@keyframes menu-title{from{opacity:0;translate:0 5px}to{opacity:1;translate:0 0}}@keyframes menu-item{from{opacity:0;translate:-4px 0}to{opacity:1;translate:0 0}}@keyframes ember-drift{15%,70%{opacity:.35}to{transform:translate(20px,-22vh);opacity:0}}
+.reduce-motion .menu-ember,.quality-low .menu-ember{display:none}.reduce-motion #home *, .reduce-motion #home *::after{animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){#home *,#home *::after{animation:none!important;transition:none!important}.menu-ember{display:none}}

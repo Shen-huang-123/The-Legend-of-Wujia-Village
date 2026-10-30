@@ -1,0 +1,13 @@
+* text=auto
+*.ps1 text eol=crlf
+*.java text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.apk binary
+*.gz binary
+

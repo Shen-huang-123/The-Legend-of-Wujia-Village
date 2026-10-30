@@ -1,0 +1,24 @@
+#home{inset:0!important;border:0!important;border-radius:0!important;padding:5vh max(4vw,env(safe-area-inset-left))!important;background-color:#070606!important;background-image:linear-gradient(90deg,#050505fa 0%,#090606eb 24%,#08060680 39%,transparent 64%),url('scene.png')!important;background-size:100% 100%,auto 182%!important;background-position:center,right top!important;overflow:hidden;isolation:isolate}
+#home::before{display:block!important;content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 82% 50%,#ff4b191a,transparent 28%);animation:lantern-breathe 5s ease-in-out infinite;z-index:0}
+#home::after{background:linear-gradient(0deg,#050505c9,transparent 30%)!important}
+#home h1{font-family:KaiTi,STKaiti,serif!important;font-size:clamp(38px,10.5vh,110px)!important;line-height:.95!important;width:32vw;letter-spacing:-.05em!important;color:#f4e6d0;transform:skew(-7deg);text-shadow:3px 4px #260b09}
+#home h1 span{font-size:.5em!important;margin:1vh 0 0 14vw!important;color:#d72d23;letter-spacing:.12em!important}
+#home .english{font:clamp(6px,1.2vh,12px)/1.6 Georgia,serif!important;letter-spacing:.3em;margin:1vh 0 2vh!important;color:#be9067}
+#home .home-nav{width:30vw!important;max-width:520px;gap:1.1vh!important;display:grid}
+#home .home-nav button{min-height:7.2vh!important;padding:1.1vh 2vw!important;font-size:clamp(14px,2.9vh,30px)!important;letter-spacing:.17em;background:linear-gradient(110deg,#0a0807e8,#17100bc9);border:1px solid #99734d;clip-path:polygon(4% 0,96% 0,100% 50%,96% 100%,4% 100%,0 50%);color:#eedfc7;transition:transform .16s,filter .16s,background .2s;position:relative;text-align:left}
+#home .home-nav button::after{content:'›';position:absolute;right:7%;color:#c7a174}
+#home .home-nav button:first-child,#home .home-nav button:hover,#home .home-nav button:focus-visible{background:linear-gradient(100deg,#5d100e,#a92318dd,#490b0b);border-color:#ff6840;color:#ffe2a7;filter:drop-shadow(0 0 7px #b71f17)}
+#home button:active{transform:scale(.97)}
+#home>.home-side{position:absolute!important;right:max(2vw,env(safe-area-inset-right))!important;top:5vh!important;gap:2vh!important;display:grid}
+#home .home-side button{min-width:48px;min-height:48px;height:12vh;display:grid;align-content:center;gap:.6vh;font-size:clamp(9px,1.8vh,18px)!important;color:#eddbbe}
+#home .home-side b{margin:auto;border:1px solid #a17b50;border-radius:50%;width:6vh;height:6vh;min-width:25px;min-height:25px;display:grid;place-items:center;background:#090807b8;font-size:3.5vh!important}
+#home .save-panel{position:absolute;bottom:7vh;left:max(4vw,env(safe-area-inset-left));width:33vw;min-height:10vh;padding:1.4vh 1.6vw;border:1px solid #a2784e;background:linear-gradient(100deg,#32100fba,#060606ed);color:#e5c99c;text-align:left;font-size:clamp(11px,2vh,22px);z-index:3}
+.save-panel small{font-size:.68em;color:#b4a89b;margin-top:.7vh}.save-panel::after{content:'➜';position:absolute;right:6%;top:35%}
+#home>.edition{bottom:2vh!important;left:4vw!important;font-size:clamp(6px,1.2vh,12px)!important}
+.home-mist{position:absolute!important;inset:50% -15% 0;pointer-events:none;z-index:1!important;background:radial-gradient(ellipse,#acbbc018,transparent 65%);animation:mist-drift 24s ease-in-out infinite alternate}
+.home-leaves{position:absolute!important;inset:0;pointer-events:none;z-index:1!important}.home-leaves i{position:absolute;top:-8%;left:var(--x);color:#a52b20;font-size:clamp(12px,2vh,24px);animation:leaf-fall var(--duration) linear infinite;animation-delay:var(--delay)}
+dialog[open]{animation:panel-enter .22s ease-out}
+@keyframes lantern-breathe{50%{opacity:.35}}@keyframes mist-drift{to{transform:translateX(12%)}}@keyframes leaf-fall{to{transform:translate(10vw,110vh) rotate(230deg);opacity:.15}}@keyframes panel-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.reduce-motion *,.quality-low .home-mist,.quality-low .home-leaves i{animation:none!important}.reduce-motion .home-leaves,.quality-low .home-leaves{display:none}
+@media(prefers-reduced-motion:reduce){#home *,#home::before,dialog[open]{animation:none!important}.home-leaves{display:none}}
+@media(max-height:430px){#home{padding-top:4vh!important}#home .home-nav button{min-height:8vh!important;font-size:3.2vh!important}.home-nav{gap:.7vh!important}#home .save-panel{bottom:6vh;min-height:10vh}#home .english{margin:.5vh 0 1vh!important}}

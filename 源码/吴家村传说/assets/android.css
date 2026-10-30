@@ -1,0 +1,6 @@
+body{touch-action:none;user-select:none;-webkit-user-select:none}
+.touchmove{display:flex;gap:14px}.touchmove button{width:64px;height:58px}
+.skills>span,.skills kbd{display:none}.skills button{min-width:70px;min-height:58px}.skills{gap:12px}
+#full{display:none}header{top:15px}#hud{inset:85px max(5%,env(safe-area-inset-right)) 16px max(5%,env(safe-area-inset-left))}
+dialog{touch-action:pan-y}
+@media(max-height:500px){#home{padding-top:19vh}h1{font-size:48px;margin:10px 0}.eyebrow{font-size:10px}.sub{font-size:15px;line-height:1.4;margin:8px 0}.intro{font-size:10px;line-height:1.6;margin:8px 0 12px}.primary{padding:11px 18px;min-width:260px}.textbtn{padding:10px 0 8px;width:260px}.hint{font-size:8px;margin-top:8px}footer{bottom:8px}.vertical{display:none}.hudtop h2{font-size:20px}#objective{margin-top:10px;font-size:11px}#toast{font-size:17px}}

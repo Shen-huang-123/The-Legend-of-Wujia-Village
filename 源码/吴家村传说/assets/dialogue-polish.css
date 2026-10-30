@@ -1,0 +1,17 @@
+dialog.story-modal{width:92vw;max-width:1500px;height:88vh;padding:0;overflow:hidden;border:0;background:#08121a;box-shadow:0 16px 70px #0009}
+.story-modal .dialogue-screen{height:100%;margin:0;background:linear-gradient(0deg,#08121977,transparent),url('art/backgrounds/menu-night-v2.png') center/cover}
+.story-modal .portrait{background:none;opacity:.22;color:#d0c3ac33;bottom:32%;pointer-events:none}
+.story-modal .storybox{left:6%;right:6%;bottom:3%;min-height:25%;max-height:48%;padding:6vh 10% 5vh 25%;border:0;box-shadow:none;background:#081219d9;color:#eee2cf;isolation:isolate;overflow:visible}
+.story-modal .storybox::before{content:'';position:absolute;inset:-3vh -3%;background:url('art/dialogue/dialogue-frame.png') center/100% 100% no-repeat;z-index:-1;pointer-events:none}
+.story-modal .storybox>b{top:-4vh;left:23%;padding:1vh 3vw;min-width:16vw;text-align:center;border:0;background:url('art/dialogue/dialogue-nameplate.png') center/100% 100% no-repeat;color:#edd0a1;font:clamp(13px,2.5vh,24px) KaiTi,serif;animation:story-name .22s ease-out}
+.story-modal #storyText{color:#efe4d1;font:clamp(13px,2.3vh,23px)/1.85 'Microsoft YaHei',sans-serif;letter-spacing:.06em;margin:0;max-height:24vh;overflow:auto;overflow-wrap:anywhere}
+.story-modal .story-actions{bottom:1%;right:3%;gap:12px;align-items:center}.story-modal #skipStory{color:#b6aa95;font-size:12px;min-width:44px;min-height:44px}
+.story-modal #continueStory{width:48px;height:48px;min-width:48px;padding:0;border:0;background:url('art/dialogue/dialogue-next.png') center/contain no-repeat;font-size:0;box-shadow:none}
+.story-modal #continueStory.is-ready{animation:story-next 2s ease-in-out infinite}.story-modal #continueStory:not(.is-ready){background-image:none;font-size:10px;color:#bbaa90}
+.dialogue-choice{background:url('art/dialogue/dialogue-choice-normal.png') center/100% 100% no-repeat}.dialogue-choice:hover,.dialogue-choice:focus-visible{background-image:url('art/dialogue/dialogue-choice-active.png')}
+@keyframes story-next{50%{transform:translateY(2px);opacity:.75}}@keyframes story-name{from{opacity:0;transform:translateX(-4px)}to{opacity:1;transform:none}}
+.reduce-motion .story-modal *{animation:none!important}@media(prefers-reduced-motion:reduce){.story-modal *{animation:none!important}}@media(max-height:430px){.story-modal .storybox{padding:4vh 12% 5vh 23%;min-height:30%}.story-modal #storyText{font-size:12px;line-height:1.6}.story-modal .storybox>b{font-size:13px}.story-modal #continueStory{width:44px;height:44px}}
+/* Percentage scene height needs an explicit containing block. */
+dialog.story-modal #modalContent{height:100%;min-height:0;position:relative}
+dialog.story-modal .dialogue-screen{height:100%;min-height:60vh;position:relative}
+dialog.story-modal #close{z-index:10;display:grid!important;background:#07131bd9;color:#e8d4b1;border:1px solid #a1845a66}

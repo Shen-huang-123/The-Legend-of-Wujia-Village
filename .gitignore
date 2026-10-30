@@ -1,0 +1,26 @@
+# Android build output and local signing material
+源码/吴家村传说/build/
+源码/吴家村传说/release/
+*.jks
+*.keystore
+*.idsig
+
+# Historical packages and generated archives (keep only 安装包/最新版)
+安装包/历史版本/
+发布/归档/
+
+# Nested/local repositories and tool metadata
+源码/网页版/
+.codex/
+.agents/
+
+# Root-level visual QA scratch files
+/*.png
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+

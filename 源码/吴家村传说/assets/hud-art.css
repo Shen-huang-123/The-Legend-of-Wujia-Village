@@ -1,0 +1,16 @@
+/* Artwork overlays do not replace the original interactive buttons. */
+#hud .skills button[data-key='j']{--skill-art:url('art/hud/skill-finger.png')}
+#hud .skills button[data-key='k']{--skill-art:url('art/hud/skill-blink.png')}
+#hud .skills button[data-key=' ']{--skill-art:url('art/hud/skill-jump.png')}
+#hud .skills button{overflow:visible;background:transparent!important;border:0!important;box-shadow:none!important;font-size:0!important}
+#hud .skills button::before{content:''!important;position:absolute;inset:-8%;margin:0;background:var(--skill-art) center/contain no-repeat;pointer-events:none;transition:opacity .15s}
+#hud .skills button::after{content:attr(aria-label);display:none}
+#hud .skills button #cooldown{position:absolute;left:-15%;right:-15%;bottom:-2px;z-index:2;padding:2px 0;background:#08131bc9;border-radius:8px;color:#ead8ea;font-size:9px}
+#hud .skills button.is-cooling::before{opacity:.45}
+#hud .touchmove{background:transparent;border:0;padding:0;gap:12px}
+#hud .touchmove button{background-color:transparent!important;background-position:center;background-repeat:no-repeat;background-size:contain;border:0;box-shadow:none;color:transparent;font-size:0}
+#hud .touchmove button[data-key='ArrowLeft']{background-image:url('art/hud/move-left.png')}
+#hud .touchmove button[data-key='ArrowRight']{background-image:url('art/hud/move-right.png')}
+#hud #objective{position:relative;background:transparent;border:0;padding:14px 28px 14px 62px;min-height:65px;width:clamp(280px,48vw,620px);max-width:58vw;isolation:isolate;font-size:clamp(10px,1.7vh,14px)}
+#hud #objective::before{content:'';position:absolute;inset:-12px 0;z-index:-1;background:url('art/hud/task-frame.png') center/100% auto no-repeat;pointer-events:none}
+@media(max-height:400px){#hud #objective{padding:9px 22px 9px 48px;min-height:50px}}

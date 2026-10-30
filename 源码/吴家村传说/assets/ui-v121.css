@@ -1,0 +1,26 @@
+/* v1.2.1 — art-direction pass built from the user-supplied cover. */
+:root{--blood:#b20f18;--ember:#ff493f;--bronze:#b38a61;--ink:#07090a}
+#home{background-image:linear-gradient(90deg,#050506f5 0 27%,#0505068a 44%,transparent 72%),linear-gradient(0deg,#050506b8,transparent 40%),url('scene.png');background-position:center,center,68% 44%;background-size:auto,auto,cover;background-repeat:no-repeat}
+#home::before{content:"";position:absolute;right:7vw;top:5vh;width:min(37vw,57vh);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 42% 38%,#fff3df 0 3%,#f8d7c3 8%,#d78879 28%,#921e26 58%,#31070d 74%,transparent 75%);filter:drop-shadow(0 0 34px #a20b20aa);opacity:.34;mix-blend-mode:screen;pointer-events:none}
+#home::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#050506b8 0 28%,transparent 54%),linear-gradient(0deg,#050506b8,transparent 35%);pointer-events:none}
+#home>*{position:relative;z-index:2}
+.chapter-grid .chapter-card{background-image:linear-gradient(0deg,#050506fa 0 18%,transparent 62%),linear-gradient(120deg,#13070a99,#0004),url('scene.png');background-size:auto,auto,260% auto;background-repeat:no-repeat}
+.chapter-grid .chapter-card:nth-child(1){background-position:center,center,73% 50%;filter:saturate(1.2)}
+.chapter-grid .chapter-card:nth-child(2){background-position:center,center,91% 40%;filter:saturate(.55) hue-rotate(7deg)}
+.chapter-grid .chapter-card:nth-child(3){background-position:center,center,48% 55%;filter:saturate(.8) brightness(.82)}
+.chapter-grid .chapter-card:nth-child(4){background-position:center,center,22% 45%;filter:saturate(1.5) contrast(1.1)}
+.chapter-grid .chapter-card:nth-child(5){background-position:center,center,60% 72%;filter:saturate(.4) brightness(.72)}
+.chapter-grid .chapter-card:nth-child(6){background-position:center,center,5% 50%;filter:saturate(.65) hue-rotate(-12deg)}
+.chapter-grid .chapter-card:nth-child(7){background-position:center,center,82% 18%;filter:saturate(1.65) brightness(.7)}
+.chapter-grid .chapter-card.locked::after{content:"锁";display:grid;place-items:center;position:absolute;inset:auto 50% 21%;translate:50%;width:2.6rem;aspect-ratio:1;border:1px solid #967d69;border-radius:50%;background:#08090be8;color:#bca997;font-family:serif}
+.story-scene{background-image:linear-gradient(90deg,#080808dd 0 17%,transparent 45% 62%,#080808dd 90%),url('scene.png');background-size:cover;background-position:center}
+.story-portrait{background-image:linear-gradient(0deg,#050506,transparent 45%),url('scene.png');background-size:270% auto;background-position:68% center;border-color:#8d211f;filter:contrast(1.08) saturate(.9)}
+.story-portrait.elder{background-position:3% center;filter:grayscale(.7) sepia(.25) contrast(1.2)}
+.map-canvas{isolation:isolate;background:radial-gradient(ellipse at 48% 48%,#2c3433 0,#15201f 42%,#050708 82%);overflow:hidden}
+.map-canvas::before{content:"";position:absolute;inset:4%;background:url('scene.png') center/cover;opacity:.32;filter:grayscale(.5) contrast(1.45);transform:rotate(-2deg) scale(1.08);clip-path:polygon(7% 14%,93% 5%,97% 83%,81% 94%,14% 89%,2% 55%)}
+.map-canvas::after{content:"";position:absolute;inset:13% 11%;z-index:1;border:2px dashed #a2654d88;border-radius:42% 58% 45% 55%;transform:rotate(-9deg);filter:drop-shadow(0 0 4px #e12721)}
+.map-pin{z-index:3;box-shadow:0 0 0 5px #0a0b0bcc,0 0 18px #e12820aa}
+.inventory-layout .item-card.selected{background:linear-gradient(135deg,#e8d0a0,#8b6544);color:#3b1710;box-shadow:inset 0 0 0 2px #34100c,0 0 18px #d5261e88;transform:rotate(-2deg)}
+.inventory-detail .item-art{background:linear-gradient(145deg,#ead8a8,#92704e);color:#431610;clip-path:polygon(8% 2%,95% 6%,91% 97%,4% 91%);box-shadow:inset 0 0 28px #5c180c99;font-family:serif;font-size:clamp(2.2rem,6vw,6rem);transform:rotate(4deg)}
+.codex-detail{background:linear-gradient(135deg,#080a0cee,#17090bed),url('scene.png') center/cover;background-blend-mode:normal,luminosity}
+@media(max-width:760px){#home::before{right:2vw;opacity:.24}.chapter-grid .chapter-card{background-size:auto,auto,320% auto}}
