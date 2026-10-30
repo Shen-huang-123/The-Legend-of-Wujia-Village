@@ -3,10 +3,10 @@
  const backgrounds={ceremony:'li-village-ceremony',disaster:'li-village-disaster',seal:'ancestral-seal',ruins:'ancestral-ruins',dawn:'ending-dawn'};
  const characterAssets={
   '李寒卓':{
-   calm:{file:'characters/li-hanzhuo-calm-master.png',scale:'138%',top:'-14%'},
-   angry:{file:'candidates/li-hanzhuo-angry-v2-source.png',scale:'138%',top:'-1.5%'},
-   shocked:{file:'characters/li-hanzhuo-calm-master.png',scale:'138%',top:'-14%'},
-   sad:{file:'characters/li-hanzhuo-calm-master.png',scale:'138%',top:'-14%'}
+   calm:{file:'characters/li-hanzhuo-calm.png',scale:'138%',top:'-14%'},
+   angry:{file:'characters/li-hanzhuo-angry.png',scale:'138%',top:'-1.5%'},
+   shocked:{file:'characters/li-hanzhuo-calm.png',scale:'138%',top:'-14%'},
+   sad:{file:'characters/li-hanzhuo-calm.png',scale:'138%',top:'-14%'}
   },
   '吴家聪':{
    calm:{file:'wu-jiacong.png',scale:'136%',top:'-3%'},

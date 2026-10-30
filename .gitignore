@@ -8,6 +8,7 @@
 # Historical packages and generated archives (keep only 安装包/最新版)
 安装包/历史版本/
 发布/归档/
+安装包/最新版/*.apk
 
 # Nested/local repositories and tool metadata
 源码/网页版/
@@ -16,6 +17,9 @@
 
 # Root-level visual QA scratch files
 /*.png
+
+# Local concept sheets, rejected variants and source-art archive
+本地素材/未采用/
 
 # OS/editor noise
 .DS_Store
