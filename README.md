@@ -1,6 +1,6 @@
 # 吴家村传说
 
-当前版本为 v1.2.5《血债神兵》图鉴升级版。项目采用原生 Android WebView + HTML/CSS/JavaScript，支持 Android 8.0 及以上横屏设备。
+当前版本为 v1.2.6《血债神兵》立绘鉴赏版。项目采用原生 Android WebView + HTML/CSS/JavaScript，支持 Android 8.0 及以上横屏设备。
 
 - [安装最新版](https://github.com/Shen-huang-123/The-Legend-of-Wujia-Village/releases/latest)（APK 按版本发布在 GitHub Releases）。
 - [剧情接入及测试说明](文档/血债神兵剧情接入说明.md)
@@ -25,7 +25,7 @@ node test-blood-debt.cjs
 .\build.ps1
 ```
 
-测试脚本覆盖七章剧情、对话回退、历史记录、快速点击、道具生命周期、章节解锁、图鉴遮蔽与结局存档。构建脚本会生成 `release/Wujia-Legends-1.2.5.apk`，本地需安装 Android SDK 35 与 JDK。
+测试脚本覆盖七章剧情、对话回退、历史记录、快速点击、道具生命周期、章节解锁、图鉴遮蔽、立绘鉴赏交互与结局存档。构建脚本会生成 `release/Wujia-Legends-1.2.6.apk`，本地需安装 Android SDK 35 与 JDK。
 
 `build/`、`release/`、本地签名密钥、概念原稿及开发预览图不会提交到 Git。仓库只保留软件运行时实际读取的美术素材，APK 通过 GitHub Releases 分发。
 
@@ -37,6 +37,7 @@ node test-blood-debt.cjs
 - Galgame 全屏剧情演出、逐字显示、上一句、历史、自动播放、跳过和隐藏 UI。
 - 背景、人物、道具独立分层，支持表情切换、道具生命周期和轻量动态演出。
 - 全屏收集图鉴，支持人物、物品、场景与事件分类、真实立绘/道具/场景展示及未解锁内容遮蔽。
+- 独立立绘鉴赏模式，支持表情与背景切换、鼠标/触屏拖动、滚轮/双指缩放、双击重置和隐藏 UI。
 - 一指、闪现、腾空能力与 Android 多点触控探索 HUD。
 - 16:9、超宽横屏及荣耀 WIN 等低高度横屏适配。
 

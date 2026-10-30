@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cn.wujiacun.legends" android:versionCode="9" android:versionName="1.2.5">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cn.wujiacun.legends" android:versionCode="10" android:versionName="1.2.6">
   <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="35" />
   <application android:label="吴家村传说" android:icon="@drawable/cover" android:theme="@style/Theme.Wujia" android:allowBackup="false" android:usesCleartextTraffic="false" android:supportsRtl="true">
     <activity android:name=".MainActivity" android:exported="true" android:screenOrientation="sensorLandscape" android:configChanges="orientation|screenSize|keyboardHidden" android:hardwareAccelerated="true">

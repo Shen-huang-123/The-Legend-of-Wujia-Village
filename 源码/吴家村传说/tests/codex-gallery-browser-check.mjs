@@ -10,11 +10,43 @@ await send('Runtime.evaluate',{expression:"localStorage.wujia='0';location.reloa
 await send('Runtime.evaluate',{expression:"codex('人物',0)"});await new Promise(resolve=>setTimeout(resolve,250));
 const locked=await evaluate("({cards:document.querySelectorAll('.codex-card').length,locked:document.querySelectorAll('.codex-card.is-locked').length,leaks:[...document.querySelectorAll('.codex-card.is-locked')].some(node=>/吴家聪|守门员|守护者/.test(node.textContent)),scroll:getComputedStyle(document.querySelector('.codex-list')).overflowY})");
 if(locked.cards!==7||locked.locked!==6||locked.leaks||locked.scroll!=='auto')throw new Error(`Locked-state check failed: ${JSON.stringify(locked)}`);
+await send('Runtime.evaluate',{expression:"document.querySelector('#codexAppreciate').click()"});await new Promise(resolve=>setTimeout(resolve,180));
+const lockedExpressions=await evaluate("document.querySelectorAll('[data-art-expression]').length");if(lockedExpressions!==1)throw new Error('Unseen expression was exposed before its chapter unlock');
+await send('Runtime.evaluate',{expression:"document.querySelector('#artViewerBack').click()"});await new Promise(resolve=>setTimeout(resolve,200));
 for(const category of ['物品','场景','事件']){
  await send('Runtime.evaluate',{expression:`codex('${category}',0)`});await new Promise(resolve=>setTimeout(resolve,120));
  const result=await evaluate(`({category:document.querySelector('.codex-gallery').dataset.category,cards:document.querySelectorAll('.codex-card').length,detail:!!document.querySelector('.codex-showcase')})`);
  if(result.category!==category||!result.cards||!result.detail)throw new Error(`Category check failed: ${JSON.stringify(result)}`);
 }
 await send('Runtime.evaluate',{expression:"localStorage.wujia='7';location.reload()"});
-console.log('PASS: live browser locked-state masking, independent scrolling, and all four collection categories.');
+await new Promise(resolve=>setTimeout(resolve,1200));
+await send('Runtime.evaluate',{expression:"codex('人物',0);setTimeout(()=>document.querySelector('#codexAppreciate').click(),80)"});await new Promise(resolve=>setTimeout(resolve,350));
+let viewer=await evaluate("({open:!!document.querySelector('.codex-art-viewer'),expressions:document.querySelectorAll('[data-art-expression]').length,backgrounds:document.querySelectorAll('[data-art-bg]').length,scale:getComputedStyle(document.querySelector('#artViewerFigure')).transform})");
+if(!viewer.open||viewer.expressions!==2||viewer.backgrounds!==4)throw new Error(`Li viewer check failed: ${JSON.stringify(viewer)}`);
+await send('Runtime.evaluate',{expression:"document.querySelector('#artViewerStage').dispatchEvent(new WheelEvent('wheel',{deltaY:-240,clientX:800,clientY:450,cancelable:true,bubbles:true}))"});await new Promise(resolve=>setTimeout(resolve,80));
+const zoomed=await evaluate("getComputedStyle(document.querySelector('#artViewerFigure')).transform");
+if(zoomed===viewer.scale)throw new Error('Mouse wheel did not zoom artwork');
+await send('Runtime.evaluate',{expression:"document.querySelector('[data-art-expression=\"1\"]').click()"});await new Promise(resolve=>setTimeout(resolve,280));
+const expressionState=await evaluate("({active:document.querySelector('[data-art-expression].active').textContent,transform:getComputedStyle(document.querySelector('#artViewerFigure')).transform})");
+if(expressionState.active!=='愤怒'||expressionState.transform!==zoomed)throw new Error(`Expression anchor changed: ${JSON.stringify(expressionState)}`);
+await send('Runtime.evaluate',{expression:"document.querySelector('#artViewerReset').click();document.querySelector('#artViewerHide').click()"});
+const hidden=await evaluate("document.querySelector('.codex-art-viewer').classList.contains('ui-hidden')");if(!hidden)throw new Error('Hide UI failed');
+await send('Runtime.evaluate',{expression:"document.querySelector('#artViewerStage').click()"});
+const beforeDrag=await evaluate("getComputedStyle(document.querySelector('#artViewerFigure')).transform");
+await send('Runtime.evaluate',{expression:"{const s=document.querySelector('#artViewerStage');s.dispatchEvent(new PointerEvent('pointerdown',{pointerId:1,pointerType:'mouse',clientX:800,clientY:450,bubbles:true}));s.dispatchEvent(new PointerEvent('pointermove',{pointerId:1,pointerType:'mouse',clientX:920,clientY:510,bubbles:true}));s.dispatchEvent(new PointerEvent('pointerup',{pointerId:1,pointerType:'mouse',clientX:920,clientY:510,bubbles:true}))}"});await new Promise(resolve=>setTimeout(resolve,80));
+const afterDrag=await evaluate("getComputedStyle(document.querySelector('#artViewerFigure')).transform");if(afterDrag===beforeDrag)throw new Error('Mouse drag did not move artwork');
+await send('Runtime.evaluate',{expression:"document.querySelector('#artViewerReset').click()"});
+const beforePinch=await evaluate("getComputedStyle(document.querySelector('#artViewerFigure')).transform");
+await send('Runtime.evaluate',{expression:"{const s=document.querySelector('#artViewerStage');s.dispatchEvent(new PointerEvent('pointerdown',{pointerId:11,pointerType:'touch',clientX:720,clientY:450,bubbles:true}));s.dispatchEvent(new PointerEvent('pointerdown',{pointerId:12,pointerType:'touch',clientX:880,clientY:450,bubbles:true}));s.dispatchEvent(new PointerEvent('pointermove',{pointerId:11,pointerType:'touch',clientX:650,clientY:450,bubbles:true}));s.dispatchEvent(new PointerEvent('pointermove',{pointerId:12,pointerType:'touch',clientX:950,clientY:450,bubbles:true}));s.dispatchEvent(new PointerEvent('pointerup',{pointerId:11,pointerType:'touch',clientX:650,clientY:450,bubbles:true}));s.dispatchEvent(new PointerEvent('pointerup',{pointerId:12,pointerType:'touch',clientX:950,clientY:450,bubbles:true}))}"});await new Promise(resolve=>setTimeout(resolve,80));
+const afterPinch=await evaluate("getComputedStyle(document.querySelector('#artViewerFigure')).transform");if(afterPinch===beforePinch)throw new Error('Two-finger pinch did not zoom artwork');
+await send('Runtime.evaluate',{expression:"{const s=document.querySelector('#artViewerStage');for(const id of [21,22]){s.dispatchEvent(new PointerEvent('pointerdown',{pointerId:id,pointerType:'touch',clientX:800,clientY:450,bubbles:true}));s.dispatchEvent(new PointerEvent('pointerup',{pointerId:id,pointerType:'touch',clientX:800,clientY:450,bubbles:true}))}}"});await new Promise(resolve=>setTimeout(resolve,80));
+const afterDoubleTap=await evaluate("getComputedStyle(document.querySelector('#artViewerFigure')).transform");if(afterDoubleTap!==beforePinch)throw new Error('Touch double-tap did not reset artwork');
+for(const background of ['dark','scene','solid','none']){await send('Runtime.evaluate',{expression:`document.querySelector('[data-art-bg="${background}"]').click()`});const selected=await evaluate("document.querySelector('.codex-art-viewer').dataset.background");if(selected!==background)throw new Error(`Background switch failed: ${background}`)}
+await send('Runtime.evaluate',{expression:"document.querySelector('#artViewerBack').click()"});await new Promise(resolve=>setTimeout(resolve,220));
+const restored=await evaluate("({viewer:!!document.querySelector('.codex-art-viewer'),category:document.querySelector('.codex-gallery').dataset.category,selected:document.querySelector('.codex-card.is-selected b').textContent})");
+if(restored.viewer||restored.category!=='人物'||restored.selected!=='李寒卓')throw new Error(`Return-state check failed: ${JSON.stringify(restored)}`);
+await send('Runtime.evaluate',{expression:"codex('人物',6);setTimeout(()=>document.querySelector('#codexAppreciate').click(),80)"});await new Promise(resolve=>setTimeout(resolve,300));
+viewer=await evaluate("({name:document.querySelector('#artViewerStage').getAttribute('aria-label'),expressions:document.querySelectorAll('[data-art-expression]').length})");
+if(!viewer.name.includes('吴家聪')||viewer.expressions!==1)throw new Error(`Wu viewer check failed: ${JSON.stringify(viewer)}`);
+console.log('PASS: live browser gallery categories, locked-state masking, viewer expressions, backgrounds, zoom, reset, hide UI and return-state restoration.');
 ws.close();

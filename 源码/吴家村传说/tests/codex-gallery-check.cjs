@@ -3,6 +3,7 @@ const path=require('path');
 const root=path.join(__dirname,'..','assets');
 const js=fs.readFileSync(path.join(root,'codex-gallery.js'),'utf8');
 const css=fs.readFileSync(path.join(root,'codex-gallery.css'),'utf8');
+const viewerCss=fs.readFileSync(path.join(root,'codex-art-viewer.css'),'utf8');
 const required=[
  'art/blood-debt/characters/li-hanzhuo-calm.png',
  'art/blood-debt/wu-jiacong.png',
@@ -17,5 +18,7 @@ for(const file of required){
 }
 for(const category of ['人物','物品','场景','事件'])if(!js.includes(category))throw new Error(`Missing category: ${category}`);
 for(const rule of ['overflow-y:auto','grid-template-columns:minmax(310px,45%)','height:100dvh','prefers-reduced-motion'])if(!css.includes(rule))throw new Error(`Missing responsive rule: ${rule}`);
+for(const rule of ['touch-action:none','height:100dvh','object-fit:contain','prefers-reduced-motion'])if(!viewerCss.includes(rule))throw new Error(`Missing viewer rule: ${rule}`);
 if(!js.includes("open?item.name:'未知档案'")||!js.includes("open?item.role:'尚未解锁'"))throw new Error('Locked entries reveal protected metadata');
+for(const behavior of ['artViewer','data-art-expression','data-art-bg','setPointerCapture','wheel','dblclick'])if(!js.includes(behavior))throw new Error(`Missing viewer behavior: ${behavior}`);
 console.log('PASS: collection gallery assets, categories, locked-state masking, scrolling and responsive styles.');
