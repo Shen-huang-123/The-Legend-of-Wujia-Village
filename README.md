@@ -1,8 +1,8 @@
 # 吴家村传说
 
-当前版本为 v1.2.3《血债神兵》七章剧情版。项目采用原生 Android WebView + HTML/CSS/JavaScript，支持 Android 8.0 及以上横屏设备。
+当前版本为 v1.2.4《血债神兵》七章剧情版。项目采用原生 Android WebView + HTML/CSS/JavaScript，支持 Android 8.0 及以上横屏设备。
 
-- [安装最新版](安装包/最新版/吴家村传说-主界面美化版.apk)（沿用文件名，已包含新版剧情）。
+- [安装最新版](https://github.com/Shen-huang-123/The-Legend-of-Wujia-Village/releases/latest)（APK 按版本发布在 GitHub Releases）。
 - [剧情接入及测试说明](文档/血债神兵剧情接入说明.md)
 - [美术素材接入说明](文档/美术素材接入说明.md)
 
@@ -14,8 +14,6 @@
 | 源码/吴家村传说 | 当前安卓工程、游戏代码、运行素材、测试和构建脚本 |
 | 源码/网页版 | 早期网页工程与发布配置 |
 | 文档 | 开发及素材说明 |
-| 美术原稿 | 封面及角色母版原稿备份，游戏使用源码内的资源副本 |
-| 预览图 | UI、章节与剧情演出实机比例预览 |
 | 发布 | 版本记录、发布说明和文件校验信息 |
 
 ## 开发与验证
@@ -27,9 +25,9 @@ node test-blood-debt.cjs
 .\build.ps1
 ```
 
-测试脚本覆盖七章剧情、对话回退、历史记录、快速点击、道具生命周期、章节解锁和结局存档。构建脚本会生成 `release/Wujia-Legends-1.2.3.apk`，本地需安装 Android SDK 35 与 JDK。
+测试脚本覆盖七章剧情、对话回退、历史记录、快速点击、道具生命周期、章节解锁和结局存档。构建脚本会生成 `release/Wujia-Legends-1.2.4.apk`，本地需安装 Android SDK 35 与 JDK。
 
-`build/`、`release/` 与本地签名密钥不会提交到 Git。仓库内仅保留 `安装包/最新版` 中唯一推荐安装包。
+`build/`、`release/`、本地签名密钥、概念原稿及开发预览图不会提交到 Git。仓库只保留软件运行时实际读取的美术素材，APK 通过 GitHub Releases 分发。
 
 当前剧情已通过模拟 DOM 流程测试与 APK v2/v3 签名校验。
 
