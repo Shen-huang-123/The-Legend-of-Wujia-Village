@@ -1,15 +1,15 @@
 {
   "name": "吴家村传说",
   "package": "cn.wujiacun.legends",
-  "latest": "1.2.3",
+  "latest": "1.2.5",
   "versions": [
     {
-      "version": "1.2.3",
-      "versionCode": 7,
+      "version": "1.2.5",
+      "versionCode": 9,
       "minAndroid": "8.0",
-      "apk": "安装包/最新版/吴家村传说-主界面美化版.apk",
-      "sha256": "6ba2285d4d1017ba9436f44b607dc8d4a8dbd1e871be1c1a076e33965f9f559f",
-      "sizeBytes": 84934559,
+      "apk": "安装包/最新版/吴家村传说-v1.2.5.apk",
+      "sha256": "0ed8a70e8de4c99597a0705e34a1d42c077b153687913a6f96967c778bb541ec",
+      "sizeBytes": 43739152,
       "notes": "发布/版本记录.md"
     }
   ]

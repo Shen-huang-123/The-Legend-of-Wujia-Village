@@ -19,9 +19,9 @@ Run-Checked "$buildTools/zipalign.exe" @('-f','4','build/unsigned.apk','build/al
 if (!(Test-Path 'release/local-signing.jks')) {
  Run-Checked "$javaBin/keytool.exe" @('-genkeypair','-keystore','release/local-signing.jks','-storepass','wujia-local-build','-keypass','wujia-local-build','-alias','wujia','-keyalg','RSA','-keysize','2048','-validity','10000','-dname','CN=Wujia Legends Local Build')
 }
-Run-Checked "$javaBin/java.exe" @('-jar',"$buildTools/lib/apksigner.jar",'sign','--ks','release/local-signing.jks','--ks-pass','pass:wujia-local-build','--key-pass','pass:wujia-local-build','--out','release/Wujia-Legends-1.2.4.apk','build/aligned.apk')
-Run-Checked "$javaBin/java.exe" @('-jar',"$buildTools/lib/apksigner.jar",'verify','--verbose','release/Wujia-Legends-1.2.4.apk')
-Run-Checked "$buildTools/aapt.exe" @('dump','badging','release/Wujia-Legends-1.2.4.apk')
+Run-Checked "$javaBin/java.exe" @('-jar',"$buildTools/lib/apksigner.jar",'sign','--ks','release/local-signing.jks','--ks-pass','pass:wujia-local-build','--key-pass','pass:wujia-local-build','--out','release/Wujia-Legends-1.2.5.apk','build/aligned.apk')
+Run-Checked "$javaBin/java.exe" @('-jar',"$buildTools/lib/apksigner.jar",'verify','--verbose','release/Wujia-Legends-1.2.5.apk')
+Run-Checked "$buildTools/aapt.exe" @('dump','badging','release/Wujia-Legends-1.2.5.apk')
 
 
 

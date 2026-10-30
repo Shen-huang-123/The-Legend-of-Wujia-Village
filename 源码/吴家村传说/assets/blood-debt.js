@@ -121,3 +121,4 @@
  document.querySelectorAll('.sub,.intro,.vertical').forEach(el=>el.hidden=true);
  $('notice').onclick=()=>show('<h2>血债神兵</h2><p>李寒卓追索十年前的血债。七章包含开场与通关剧情，点击对话先显示全文，再继续；可跳过本段。</p><p>沿用本机七章通关存档，已解锁章节可重游查看新版剧情。人物素材为现有候选稿。</p>');
 })();
+if(document.head){const codexScript=document.createElement('script');codexScript.src='codex-gallery.js';document.head.appendChild(codexScript)}
